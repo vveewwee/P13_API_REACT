@@ -1,25 +1,15 @@
 import React, { Fragment } from 'react';
+import Nav from '../../components/Nav';
+import Footer from '../../components/Footer';
 import '../../style/style.css'
+import chatIcon from '../../assets/icon-chat.png'
+import iconMoney from '../../assets/icon-money.png'
+import iconSec from '../../assets/icon-security.png'
 
 export default function Home(){
   return (
     <Fragment>
-      <nav className="main-nav">
-        <a className="main-nav-logo" href="./index.html">
-          <img
-            className="main-nav-logo-image"
-            src="./img/argentBankLogo.png"
-            alt="Argent Bank Logo"
-          />
-          <h1 className="sr-only">Argent Bank</h1>
-        </a>
-        <div>
-          <a className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </a>
-        </div>
-      </nav>
+      <Nav/>
       <main>
         <div className="hero">
           <section className="hero-content">
@@ -33,7 +23,7 @@ export default function Home(){
         <section className="features">
           <h2 className="sr-only">Features</h2>
           <div className="feature-item">
-            <img src="./img/icon-chat.png" alt="Chat Icon" className="feature-icon" />
+            <img src={chatIcon} alt="Chat Icon" className="feature-icon" />
             <h3 className="feature-item-title">You are our #1 priority</h3>
             <p>
               Need to talk to a representative? You can get in touch through our
@@ -42,7 +32,7 @@ export default function Home(){
           </div>
           <div className="feature-item">
             <img
-              src="./img/icon-money.png"
+              src={iconMoney}
               alt="Chat Icon"
               className="feature-icon"
             />
@@ -53,7 +43,7 @@ export default function Home(){
           </div>
           <div className="feature-item">
             <img
-              src="./img/icon-security.png"
+              src={iconSec}
               alt="Chat Icon"
               className="feature-icon"
             />
@@ -65,9 +55,7 @@ export default function Home(){
           </div>
         </section>
       </main>
-      <footer className="footer">
-        <p className="footer-text">Copyright 2020 Argent Bank</p>
-      </footer>
+      <Footer/>
     </Fragment>
   )
 }
