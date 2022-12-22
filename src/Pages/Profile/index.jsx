@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import "../../style/style.css";
@@ -7,8 +8,18 @@ export default function Profile(){
 
     const [editing, setEditing] = useState(true);
 
-    const name = "Tony";
-    const lastname = "Jarvis";
+    var name = "Tony";
+    var lastname = "Jarvis";
+
+    function editname(e){
+        e.preventDefault();
+       
+        name = document.getElementById("newName").value;
+        console.log(name);
+        lastname = document.getElementById("newLastname").value;
+        console.log(lastname);
+        setEditing(true);
+    }
 
     return (
         <Fragment>
@@ -18,22 +29,24 @@ export default function Profile(){
                     {editing ? (
   
                             <h1>Welcome back<br />
-                                <div className="header">
+                                <div className="spanContainer">
                                 <span id="regName">{`${name} ${lastname}!`}</span>
-                                <button className="edit-button" onClick={() => setEditing(false)}>Edit Name</button>
+                                <button id="newLastname"className="edit-button" onClick={() => setEditing(false)}>Edit Name</button>
                                 </div>
                             </h1>
                      
                     ) : (
                        
                             <h1>Welcome back<br />
-                             <div className="header">
+                             <div className="spanContainer">
                                 <span id="editName">
-                                    <input value={name}></input>
-                                    <input value={lastname}></input>
+                                    <input className="nameEditInput" id="newName"placeholder={name}></input>
+                                    <input className="nameEditInput" id="lastName" placeholder={lastname}></input>
                                 </span>
-                                <button className="edit-button" onClick={() => setEditing(true)}>Save Name</button>
-                                <button className="edit-button" onClick={() => setEditing(true)}>Cancel</button>
+                                <span>
+                                    <button className="edit-button nameEditBtn" onClick={() => editname()}>Save Name</button>
+                                    <button className="edit-button nameEditBtn" onClick={() => setEditing(true)}>Cancel</button>
+                                </span>
                                 </div>
                             </h1>
                        )}
@@ -46,7 +59,7 @@ export default function Profile(){
                             <p className="account-amount-description">Available Balance</p>
                         </div>
                         <div className="account-content-wrapper cta">
-                            <button className="transaction-button">View transactions</button>
+                            <Link className="transaction-button" to="/transactions">View transactions</Link>
                         </div>
                     </section>
                     <section className="account">
