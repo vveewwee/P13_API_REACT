@@ -3,6 +3,7 @@ import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import '../../style/style.css';
 
+const profilePath = "/profile";
 export default function Login(){
     return (
         <Fragment>
@@ -23,7 +24,7 @@ export default function Login(){
                             <div className="input-remember">
                                 <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
                             </div>
-                            <a href="./user.html" className="sign-in-button">Sign In</a>
+                            <a href={profilePath} className="sign-in-button">Sign In</a>
                         </form>
                     </section>
                 </main>
